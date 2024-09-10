@@ -8,12 +8,22 @@ export default function Home() {
           className="dark:invert"
           src="https://www.svgrepo.com/download/1699/web-development.svg"
           alt="Next.js logo"
-          width={68}
+          width={60}
           height={10}
           priority
         />
         <p className="text-lg text-center lg:text-left font-[family-name:var(--font-geist-mono)]">
           Derek Russell
+        </p>
+        <p className="text-lg text-center lg:text-left font-[family-name:var(--font-geist-mono)]">
+          Web Developer, Cyber Security Enthusiast
+        </p>
+        <p className="text-lg lg:text-left font-[family-name:var(--font-geist-mono)]">
+          Starting out, I was really only interested in cyber security,
+          but eventually I became incredibly passionate about programming.
+          My primary interest currently is with low level languages like
+          Rust and C, though I have been dipping my toes into Web
+          Development as well.
         </p>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
