@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 type TWProps = {
   text: string,
   speed: number,
-  onComplete: any,
+  onComplete?: any,
 }
 
 const TypeWriterEffect = ({ text, speed, onComplete }: TWProps) => {
