@@ -54,7 +54,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
       <main className="mt-12 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
         <Image
           className="dark:invert"
-          src="https://www.svgrepo.com/download/1699/web-development.svg"
+          src="/web-development.svg"
           alt="logo"
           width={60}
           height={60}
