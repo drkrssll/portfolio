@@ -100,7 +100,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
           )}
 
           {isTypewriterFinished && pathName === "/contact" && (
-            <div className="pt-40 flex flex-col items-center justify-center">
+            <div className="pt-20 flex flex-col items-center justify-center">
               <h2 className="pb-5 text-xl text-left font-[family-name:var(--font-geist-mono)]">
                 My Resume
               </h2>

@@ -24,7 +24,7 @@ const Corner = () => {
         <ChevronDown size={42} />
       </button>
       {isOpen && (
-        <div className="absolute top-10 right-10 bg-dark shadow-md rounded-md p-5 z-20">
+        <div className="bg-black absolute top-10 right-10 shadow-md rounded-md p-5 z-20">
           <ul className="space-y-2">
             <li><a href="/" className="text-white-600 hover:underline">Home</a></li>
             <li><a href="/about" className="text-white-600 hover:underline">Showcase</a></li>
