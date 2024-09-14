@@ -37,7 +37,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
 
   if (pathName === '/contact') {
     buttonText = 'Download My Resume';
-    buttonHref = '/DR_Resume.pdf';
+    buttonHref = '/DR_CV_2024.pdf';
   } else {
     buttonText = 'Contact Me';
     buttonHref = '/contact';
