@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 
 type TWProps = {
-  text: string,
-  speed: number,
-  onComplete?: any,
-}
+  text: string;
+  speed: number;
+  onComplete?: React.Dispatch<React.SetStateAction<string>>;
+};
 
 const TypeWriterEffect = ({ text, speed, onComplete }: TWProps) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -15,12 +15,16 @@ const TypeWriterEffect = ({ text, speed, onComplete }: TWProps) => {
   useEffect(() => {
     if (currentIndex < text.length) {
       const timer = setTimeout(() => {
-        setDisplayedText(prevText => {
+        setDisplayedText((prevText) => {
           const newText = prevText + text[currentIndex];
-          onComplete(newText);
+
+          if (onComplete) {
+            onComplete(newText);
+          }
+
           return newText;
         });
-        setCurrentIndex(prevIndex => prevIndex + 1);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
       }, speed);
 
       return () => clearTimeout(timer);
