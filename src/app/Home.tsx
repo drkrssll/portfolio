@@ -5,6 +5,8 @@ import Image from 'next/image';
 import TypeWriterEffect from './TypeWriterEffect';
 import Corner from './Corner';
 import { CardProps } from 'react-bootstrap';
+import { FaArrowDown } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 type HomeProps = {
   title: string,
@@ -25,6 +27,27 @@ export const Card: React.FC<CardProps> = ({ title, content }) => (
 
 const HomePage = ({ title, summary, body, alignType, button, primaryCard, secondaryCard, }: HomeProps) => {
   const [typedText, setTypedText] = useState('');
+  const isTypewriterFinished = typedText.length === body.length;
+
+  const pathName = usePathname();
+
+  let buttonText = '';
+  let buttonHref = '';
+  let borderButtonHref = '';
+
+  if (pathName === '/contact') {
+    buttonText = 'Download My Resume';
+    buttonHref = '/DR_Resume.pdf';
+  } else {
+    buttonText = 'Contact Me';
+    buttonHref = '/contact';
+
+    if (pathName === '/about') {
+      borderButtonHref = 'https://github.com/drkrssll';
+    } else if (pathName === '/') {
+      borderButtonHref = '/about';
+    }
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 font-[family-name:var(--font-geist-mono)]">
@@ -59,14 +82,33 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
             speed={30}
             onComplete={setTypedText}
           />
+
           {button && (
-            < div className={`transition-opacity duration-500 ${typedText.length === body.length ? 'opacity-100' : 'opacity-0'}`}>
+            <div
+              className={`transition-opacity duration-500 ${isTypewriterFinished ? 'opacity-100' : 'opacity-0'
+                }`}
+            >
               <a
                 className="mt-8 inline-block rounded-full text-sm sm:text-base py-3 px-5 min-w-[176px] animated-border relative overflow-hidden"
-                href="about"
+                href={borderButtonHref}
+                target={pathName === '/about' ? '_blank' : '_self'}
+                rel={pathName === '/about' ? 'noopener noreferrer' : undefined}
               >
                 <span className="relative z-10">{button}</span>
               </a>
+            </div>
+          )}
+
+          {isTypewriterFinished && pathName === "/contact" && (
+            <div className="pt-40 flex flex-col items-center justify-center">
+              <h2 className="pb-5 text-xl text-left font-[family-name:var(--font-geist-mono)]">
+                My Resume
+              </h2>
+
+              <FaArrowDown
+                size={32}
+                className="text-white-500 animate-bounce"
+              />
             </div>
           )}
           <Corner />
@@ -75,9 +117,10 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
       <footer className="mt-12">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/icons/file.svg"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={buttonHref}
+          target={pathName === '/contact' ? '_blank' : '_self'}
+          rel={pathName === '/contact' ? 'noopener noreferrer' : undefined}
+          download={pathName === '/contact' ? true : undefined}
         >
           <Image
             aria-hidden
@@ -86,7 +129,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
             width={16}
             height={16}
           />
-          Download My Resume →
+          {buttonText} →
         </a>
       </footer>
     </div >
