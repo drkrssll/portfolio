@@ -50,8 +50,8 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-8 font-[family-name:var(--font-geist-mono)]">
-      <main className="mt-12 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 font-[family-name:var(--font-geist-mono)]">
+      <main className="pt-3 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
         <Image
           className="dark:invert"
           src="/web-development.svg"
@@ -100,7 +100,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
           )}
 
           {isTypewriterFinished && pathName === "/contact" && (
-            <div className="pt-20 flex flex-col items-center justify-center">
+            <div className="pt-14 flex flex-col items-center justify-center">
               <h2 className="pb-5 text-xl text-left font-[family-name:var(--font-geist-mono)]">
                 My Resume
               </h2>
