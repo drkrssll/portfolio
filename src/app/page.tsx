@@ -13,7 +13,6 @@ export default function Home() {
       title="Derek Russell"
       summary="Web Developer, Cyber Security Enthusiast"
       body={bioText}
-      alignType='justify-between'
       button="My Showcase ->"
     />
   );
