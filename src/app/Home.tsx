@@ -6,6 +6,7 @@ import TypeWriterEffect from './TypeWriterEffect';
 import Corner from './Corner';
 import { FaArrowDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type HomeProps = {
   title: string,
@@ -29,7 +30,7 @@ type CardProps = {
 export const Card = ({ title, content, image, width, height }: CardProps) => (
   <div className="border p-4 rounded-lg shadow-md">
     <h3 className="text-lg font-semibold pb-2">{title}</h3>
-    {(image || width || height) && (
+    {image && (
       <Image className="dark pb-2" src={image} alt='logo' width={width} height={height} priority />
     )}
     <p>{content}</p>
