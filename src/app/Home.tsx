@@ -82,8 +82,8 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
 
         {(primaryCard || secondaryCard) && (
           <div className="pt-4 pb-4 columns-1 md:columns-2 gap-4">
-            {primaryCard && <div className="mb-4 break-inside-avoid">{primaryCard}</div>}
             {extraCard && <div className="mb-4 break-inside-avoid">{extraCard}</div>}
+            {primaryCard && <div className="mb-4 break-inside-avoid">{primaryCard}</div>}
             {secondaryCard && <div className="mb-4 break-inside-avoid">{secondaryCard}</div>}
           </div>
         )}
@@ -97,8 +97,7 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
 
           {button && (
             <div
-              className={`transition-opacity duration-500 ${isTypewriterFinished ? 'opacity-100' : 'opacity-0'
-                }`}
+              className={`transition-opacity duration-500 ${isTypewriterFinished ? 'opacity-100' : 'opacity-0'}`}
             >
               <a
                 className="mt-8 inline-block rounded-full text-sm sm:text-base py-3 px-5 min-w-[176px] animated-border relative overflow-hidden"

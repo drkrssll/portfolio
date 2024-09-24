@@ -24,11 +24,11 @@ const Corner = () => {
         <ChevronDown size={42} />
       </button>
       {isOpen && (
-        <div className="bg-black absolute top-10 right-10 shadow-md rounded-md p-5 z-20">
+        <div className="bg-white dark:bg-black absolute top-10 right-10 shadow-md rounded-md p-5 z-20">
           <ul className="space-y-2">
-            <li><a href="/" className="text-white-600 hover:underline">Home</a></li>
-            <li><a href="/about" className="text-white-600 hover:underline">Showcase</a></li>
-            <li><a href="/contact" className="text-white-600 hover:underline">Contact</a></li>
+            <li><a href="/" className="text-black dark:text-white hover:underline">Home</a></li>
+            <li><a href="/about" className="text-black dark:text-white hover:underline">Showcase</a></li>
+            <li><a href="/contact" className="text-black dark:text-white hover:underline">Contact</a></li>
           </ul>
         </div>
       )}
