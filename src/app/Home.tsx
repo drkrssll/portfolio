@@ -1,42 +1,23 @@
 'use client';
 
 import React, { ReactNode, useState } from 'react';
-import Image from 'next/image';
-import TypeWriterEffect from './TypeWriterEffect';
-import Corner from './Corner';
+import TypeWriterEffect from './components/TypeWriterEffect';
+import Corner from './components/Corner';
 import { FaArrowDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 type HomeProps = {
   title: string,
   summary?: string,
   body: string,
-  alignType?: string,
   button?: string,
   primaryCard?: ReactNode,
   secondaryCard?: ReactNode,
-  extraCard?: ReactNode,
+  infoCard?: ReactNode,
 }
 
-type CardProps = {
-  title: string,
-  content: string,
-  image?: string,
-  width?: number,
-  height?: number,
-}
-
-export const Card = ({ title, content, image, width, height }: CardProps) => (
-  <div className="border p-4 rounded-lg shadow-md">
-    <h3 className="text-lg font-semibold pb-2">{title}</h3>
-    {image && (
-      <Image className="dark pb-2" src={image} alt='logo' width={width} height={height} priority />
-    )}
-    <p>{content}</p>
-  </div>
-);
-
-const HomePage = ({ title, summary, body, alignType, button, primaryCard, secondaryCard, extraCard }: HomeProps) => {
+const HomePage = ({ title, summary, body, button, primaryCard, secondaryCard, infoCard }: HomeProps) => {
   const [typedText, setTypedText] = useState('');
   const isTypewriterFinished = typedText.length === body.length;
 
@@ -81,14 +62,14 @@ const HomePage = ({ title, summary, body, alignType, button, primaryCard, second
         )}
 
         {(primaryCard || secondaryCard) && (
-          <div className="pt-4 pb-4 columns-1 md:columns-2 gap-4">
-            {extraCard && <div className="mb-4 break-inside-avoid">{extraCard}</div>}
+          <div className="pt-2 pb-2 columns-1 md:columns-2 gap-4">
+            {infoCard && <div className="mb-4 break-inside-avoid">{infoCard}</div>}
             {primaryCard && <div className="mb-4 break-inside-avoid">{primaryCard}</div>}
             {secondaryCard && <div className="mb-4 break-inside-avoid">{secondaryCard}</div>}
           </div>
         )}
 
-        <div className={`min-h-[200px] flex flex-col ${alignType}`}>
+        <div className={'min-h-[200px] flex flex-col'}>
           <TypeWriterEffect
             text={body}
             speed={30}
