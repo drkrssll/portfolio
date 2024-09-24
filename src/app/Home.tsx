@@ -6,7 +6,6 @@ import TypeWriterEffect from './TypeWriterEffect';
 import Corner from './Corner';
 import { FaArrowDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 type HomeProps = {
   title: string,
