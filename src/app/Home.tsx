@@ -44,13 +44,12 @@ const HomePage = ({ title, summary, body, button, primaryCard, secondaryCard, in
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 font-[family-name:var(--font-geist-mono)]">
       <main className="pt-3 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
-        <Image
-          className="dark:invert"
+        <img
           src="https://utfs.io/f/PoxZDyeHhCta8kRNkL1IdBNITK5CJfSZH0v7MuzEQnsDry14"
           alt="logo"
           width={60}
           height={60}
-          priority
+          className="dark:invert"
         />
         <h1 className="text-2xl text-left font-bold font-[family-name:var(--font-geist-mono)]">
           {title}
