@@ -29,7 +29,7 @@ const HomePage = ({ title, summary, body, button, primaryCard, secondaryCard, in
 
   if (pathName === '/contact') {
     buttonText = 'Download My Resume';
-    buttonHref = '/DR_CV_2024.pdf';
+    buttonHref = 'https://utfs.io/f/PoxZDyeHhCtaXbzl5NkhxOLHSZcRmn6vCTUlY1u7A2JiV845';
   } else {
     buttonText = 'Contact Me';
     buttonHref = '/contact';
@@ -46,7 +46,7 @@ const HomePage = ({ title, summary, body, button, primaryCard, secondaryCard, in
       <main className="pt-3 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
         <Image
           className="dark:invert"
-          src="/web-development.svg"
+          src="https://utfs.io/f/PoxZDyeHhCta8kRNkL1IdBNITK5CJfSZH0v7MuzEQnsDry14"
           alt="logo"
           width={60}
           height={60}
