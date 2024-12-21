@@ -6,7 +6,11 @@ import Corner from './components/Corner';
 import { FaArrowDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { MousePosition } from './components/MouseGlow';
+
+interface MousePosition {
+  x: number;
+  y: number;
+}
 
 type HomeProps = {
   title: string,
