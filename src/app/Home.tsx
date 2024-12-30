@@ -1,16 +1,12 @@
 'use client';
 
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import TypeWriterEffect from './components/TypeWriterEffect';
 import Corner from './components/Corner';
 import { FaArrowDown } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
-interface MousePosition {
-  x: number;
-  y: number;
-}
 
 type HomeProps = {
   title: string,
@@ -26,19 +22,9 @@ type HomeProps = {
 
 const HomePage = ({ title, summary, body, button, firstCard, secondCard, thirdCard, fourthCard, fifthCard }: HomeProps) => {
   const [typedText, setTypedText] = useState('');
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const isTypewriterFinished = typedText.length === body.length;
   const pathName = usePathname();
 
-  useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener('mousemove', updateMousePosition);
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-    };
-  }, []);
 
   let buttonText = '';
   let buttonHref = '';
@@ -60,32 +46,6 @@ const HomePage = ({ title, summary, body, button, firstCard, secondCard, thirdCa
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 font-[family-name:var(--font-geist-mono)]">
-      <div className="fixed inset-0 z-20 pointer-events-none">
-        <div
-          className="absolute inset-0 bg-white"
-          style={{
-            mask: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, white 0%, transparent 10%)`,
-            WebkitMask: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, white 0%, transparent 5%)`
-          }}
-        >
-          <div className="pt-20 text-center">
-            <p className="text-black text-xl text-bold">( ͡° ͜ʖ ͡°)</p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className="pointer-events-none fixed inset-0 z-10"
-        style={{
-          background: `radial-gradient(
-            circle at ${mousePosition.x}px ${mousePosition.y}px,
-            rgba(255, 255, 255, 0.15) -5%,
-            rgba(255, 255, 255, 0.05) 5%,
-            transparent 15%
-          )`
-        }}
-      />
-
       <main className="pt-3 flex flex-grow flex-col max-w-3xl w-full space-y-8 text-center">
         <img
           src="https://utfs.io/f/PoxZDyeHhCta8kRNkL1IdBNITK5CJfSZH0v7MuzEQnsDry14"
@@ -171,5 +131,4 @@ const HomePage = ({ title, summary, body, button, firstCard, secondCard, thirdCa
     </div >
   );
 }
-
 export default HomePage
